@@ -15,6 +15,7 @@ var gulp = require('gulp'),
 var sourceDir = 'src/client/',
 	imgSourceDir = sourceDir + 'img/',
 	jsSourceDir = sourceDir + 'coffee/',
+	libjsSourceDir = sourceDir + 'libjs/',
 	cssSourceDir = sourceDir + 'less/';
 
 var releaseDir = 'release/client/',
@@ -28,6 +29,15 @@ gulp.task( 'js', function(){
 		.pipe(coffee({bare: true}).on('error', gutil.log))
 		.pipe( plumber() )
 		.pipe( concat('todolist.js') )
+		.pipe( rename({suffix:'.min'}) )
+		.pipe( uglify() )
+		.pipe( gulp.dest( jsBuildDir ) );
+});
+
+//minize lib js
+gulp.task( 'libjs', function(){
+	gulp.src(libjsSourceDir + '*.js')
+		.pipe( plumber() )
 		.pipe( rename({suffix:'.min'}) )
 		.pipe( uglify() )
 		.pipe( gulp.dest( jsBuildDir ) );
@@ -68,4 +78,4 @@ gulp.task( 'js_server', function(){
 
 
 // Should keep watch at end of array, havent do that for time reason
-gulp.task( 'default', [ 'js', 'css', 'img', 'js_server'] );
+gulp.task( 'default', [ 'js', 'libjs', 'css', 'img', 'js_server'] );
