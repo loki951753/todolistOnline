@@ -1,30 +1,111 @@
 #todoapp {
-	background: #fff;
+	background: rgba(255, 255, 255, 0.1);
 	padding: 20px;
-	margin-bottom: 40px;
+	margin: 100px auto 40px;
+	top: 20%;
+	width: 466px;
 	.boxShadow(rgba(0, 0, 0, 0.2) 0 2px 6px 0);
-	.borderRadius(0 0 5px 5px);
+	.borderRadius(1px);
 }
 
 #todoapp h1 {
 	font-size: 36px;
-	font-weight: bold;
 	text-align: center;
-	padding: 0 0 10px 0;
+	color: #fff;
+}
+
+#todoapp header {
+	margin-bottom: 5px;
 }
 
 #todoapp input[type="text"] {
-	width: 466px;
+	width: 100%;
 	font-size: 24px;
 	font-family: inherit;
-	line-height: 1.4em;
-	border: 0;
-	outline: none;
-	padding: 6px;
-	border: 1px solid #999;
-	.boxShadow(rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset);
+	line-height: 2em;
+	text-indent: .5em;
+	border: none;
+	background: none;
+	color: #ccc;
+
 }
 
 #todoapp input::-webkit-input-placeholder {
 	font-style: italic;
+		color: #ccc;
+}
+
+.gb-border-flyin input:focus {
+	outline: none;
+}
+
+/*飞入*/
+.gb-border-flyin{
+	width: 100%;
+	font-size: 24px;
+	font-family: inherit;
+	line-height: 2em;
+	border: 2px solid #fff;
+	background: none;
+	color: #ccc;
+
+	-moz-transform: ease 0.4s;
+    -webkit-transition: ease 0.4s;
+    -ms-transition: ease 0.4s;
+    -o-transition: ease 0.4s;
+    transition: ease 0.4s;
+    position: relative;
+}
+.gb-border-flyin .gb-line{
+	position: absolute;
+	-moz-transform: ease 0.4s;
+    -webkit-transition: ease 0.4s;
+    -ms-transition: ease 0.4s;
+    -o-transition: ease 0.4s;
+    transition: ease 0.4s;
+}
+.gb-border-flyin input:hover ~ .gb-line{
+	background: #fff;
+}
+.gb-border-flyin .gb-line-top{
+	width: 0px;
+	height: 2px;
+	left:-110%;
+	top: -2px;
+}
+.gb-border-flyin input:hover ~ .gb-line-top{
+    width: 100%;
+    left: -2px;
+}
+
+.gb-border-flyin .gb-line-right{
+	width: 2px;
+	height: 0px;
+	right: -2px;
+	top: -110%;
+}
+.gb-border-flyin input:hover ~ .gb-line-right{
+    height: 100%;
+    top: -2px;
+}
+
+.gb-border-flyin .gb-line-bottom{
+	width: 0px;
+	height: 2px;
+	right:-110%;
+	bottom: -2px;
+}
+.gb-border-flyin input:hover ~ .gb-line-bottom{
+    width: 100%;
+    right: -2px;
+}
+.gb-border-flyin .gb-line-left{
+	width: 2px;
+	height: 0px;
+	left: -2px;
+	bottom: -110%;
+}
+.gb-border-flyin input:hover ~ .gb-line-left{
+    height: 100%;
+    bottom: -2px;
 }

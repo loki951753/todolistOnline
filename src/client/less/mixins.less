@@ -15,3 +15,10 @@
 	-o-border-radius: @arg;
 	border-radius: @arg;
 }
+
+.filter(@arg){
+    -webkit-filter:blur(@arg);
+   -moz-filter: blur(@arg);
+    -ms-filter: blur(@arg);  
+        filter: blur(@arg);
+}

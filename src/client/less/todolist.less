@@ -2,31 +2,46 @@
 	display: none;
 }
 
+#main label {
+	color: #fff;
+}
 #todo-list {
-	margin: 10px 0;
+	margin: 20px -20px;
 	padding: 0;
 	list-style: none;
 }
 
 #todo-list li {
-	padding: 18px 20px 18px 0;
+	padding: 18px 20px;
 	position: relative;
 	font-size: 24px;
 	border-bottom: 1px solid #ccc;
+}
+
+#todo-list li:nth-child(2n+0){
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+#todo-list li:nth-child(2n+1){
+	background-color: rgba(255, 255, 255, 0.1);
 }
 
 #todo-list li:last-child {
 	border-bottom: none;
 }
 
+#todo-list li label {
+	color: #ddd;
+}
+
 #todo-list li.done label {
-	color: #777777;
+	color: #ddd;
 	text-decoration: line-through;
 }
 
 #todo-list .destroy {
 	position: absolute;
-	right: 5px;
+	right: 20px;
 	top: 20px;
 	display: none;
 	cursor: pointer;
@@ -70,4 +85,10 @@
 
 #todo-list li .edit {
 	display: none;
+}
+
+//动画
+#todo-list li {
+	transition: ease 0.4s;
+
 }
